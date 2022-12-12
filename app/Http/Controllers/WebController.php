@@ -19,14 +19,14 @@ class WebController extends Controller
     {
         try {
 
-
+            //$diaActual = Carbon::now()->locale('es')->isoFormat('dddd D \d\e MMMM \d\e\l Y');
             $zipcode = $request->zipcode;
             $client = new Client();
             $url = "https://maps.googleapis.com/maps/api/geocode/json?key=" . env("GOOGLE_GEO_API_KEY") . "&language=es-co&region=ES&components=postal_code:" . $zipcode;
             $response = $client->request('GET', $url);
 
             $responseBody = json_decode($response->getBody());
-            //dd($url);
+            //dd($zipcode);
             if (!$responseBody->results) {
                 return redirect('/')->with('error', 'Codigo Postal Incorrecto');
             }
@@ -68,7 +68,8 @@ class WebController extends Controller
                 $dateData = date("Y-m-d", $data->dt);
                 if ($date != $dateData) {
                     $nextDays[$days] = (object) array(
-                        'date' => date("d-m-Y", $data->dt),
+                        //'date' => date("l", $data->dt),
+                        'date' => Carbon::parse($data->dt)->locale('es')->isoFormat('dddd'),
                         'temperature' => round($data->main->temp),
                         'humidity' => $data->main->humidity
                     );
@@ -91,6 +92,7 @@ class WebController extends Controller
             $weather->temperature_max = $max;
             $weather->temperature_min = $min;
             $weather->humidity = $humidity;
+            $weather->zipcode = $zipcode;
             $weather->date = Carbon::now();
             $weather->save();
 
@@ -99,10 +101,12 @@ class WebController extends Controller
             $index = 0;
             foreach ($database as $data) {
                 $top[$index] = (object) array(
+                    'index' => $index + 1,
                     'city' => $data->city,
                     'date' => Carbon::parse($data->date)->format('d-m-Y'),
                     'temperature' => round($data->temperature),
-                    'humidity' => $data->humidity
+                    'humidity' => $data->humidity,
+                    'zipcode' => $data->zipcode
                 );
                 $index++;
             }
@@ -119,7 +123,7 @@ class WebController extends Controller
                 'top' => $top,
             );
 
-            return view("index", ["result" => $result]);
+            return view("tiempo", ["result" => $result]);
         } catch (Exception $err) {
             return redirect('/')->with('error', $err);
         }
