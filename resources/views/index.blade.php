@@ -1,5 +1,5 @@
 @extends('layouts.website')
-<div class="row mt-5">
+<div class="row mt-7">
     <form name="zipcode-form" id="zipcode-form" method="post" action="{{url('tiempo')}}">
         @csrf
         <div class="row col-md-12 my-5">
