@@ -16,6 +16,7 @@
             /* Style for "mohammad-a" */
             background-image: url('img/bg.png');
             background-position: center;
+            background-size: cover;
             width: auto;
             height: auto;
             display: flex;

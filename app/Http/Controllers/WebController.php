@@ -24,7 +24,6 @@ class WebController extends Controller
             $client = new Client();
             $url = "https://maps.googleapis.com/maps/api/geocode/json?key=" . env("GOOGLE_GEO_API_KEY") . "&language=es-co&region=ES&components=postal_code:" . $zipcode;
             $response = $client->request('GET', $url);
-
             $responseBody = json_decode($response->getBody());
             //dd($zipcode);
             if (!$responseBody->results) {
