@@ -18,7 +18,7 @@
             </div>
             <div class="col-md-6 mt-5">
                 <div class="icon-btn-b"></div>
-                <a href="/">Buscar otra zona</a>
+                <a href="/">Buscar otra ciudad</a>
             </div>
             <div class="row">
                 <div class="col-md-3 area-aa">
@@ -27,7 +27,7 @@
                     <label class="label-temp-a">Humedad: {{ $result->humidity }}%</label>
                 </div>
                 <div class="col-md-9 area-aa">
-                    <label class="label-temp-a">Próximas 5 días</label>
+                    <label class="label-temp-a">Próximos 5 días</label>
                     <div style="display: flex; flex-direction:row; justify-content:space-between">
                         @foreach($result->nextDays as $day)
                         <div>
@@ -41,7 +41,7 @@
         </div>
         <div class="area-b col-md-4 row">
             <div class="col-md-12 text-center">
-                <label class="label-temp-a col-md-12">Top 5 de las zonas más frías según tus búsquedas</label>
+                <label class="label-temp-a col-md-12">Top 5 de las ciudades más frías según tus últimas búsquedas</label>
             </div>
             <div class="mt-5">
                 @foreach($result->top as $top)

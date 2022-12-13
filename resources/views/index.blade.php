@@ -2,7 +2,7 @@
 <div class="mohammad-a">
     <div class="bitmap"></div>
     <div class="texto-a">
-        Entérate del tiempo en la zona exacta que te interesa buscando por código postal.
+        Entérate del tiempo en la zona exacta que te interesa comprobando el código postal.
     </div>
     <form name="zipcode-form" id="zipcode-form" method="post" action="{{url('tiempo')}}">
         @csrf

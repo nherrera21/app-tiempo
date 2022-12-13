@@ -39,11 +39,11 @@
             height: 48px;
             color: #ffffff;
             font-family: "Muli";
-            font-size: 18px;
+            font-size: 19px;
             font-weight: 700;
             font-style: normal;
             letter-spacing: normal;
-            line-height: 24px;
+            line-height: 25px;
             text-align: center;
             margin-top: 157px;
         }
@@ -109,7 +109,7 @@
         }
 
         .footer-a {
-            /* Style for "¡Que la ll" */
+            /* Style for "¡Que la lluvia no te frene" */
             width: 208px;
             height: 24px;
             color: #ffffff;
@@ -163,7 +163,7 @@
         }
 
         .label-a {
-            /* Style for "Código pos" */
+            /* Style for "Código postal" */
             width: 106px;
             height: 24px;
             color: #ffffff;
@@ -208,7 +208,7 @@
             /* Style for "Código pos" */
             color: #ffffff;
             font-family: "Muli";
-            font-size: 16px;
+            font-size: 17px;
             font-weight: 400;
             font-style: normal;
             letter-spacing: normal;
